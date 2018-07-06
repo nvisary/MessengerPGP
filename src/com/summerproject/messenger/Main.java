@@ -1,4 +1,4 @@
-package com.nvisary;
+package com.summerproject.messenger;
 
 public class Main {
 
