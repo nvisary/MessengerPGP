@@ -9,15 +9,12 @@ import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 public class ZipUtil {
-    public static void zip(FileInputStream fileInputStream, String name, String outputName) {
+    public static void zip(byte[] inputData, String name, String outputName) {
         try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(outputName))) {
             ZipEntry entry = new ZipEntry(name);
             zout.putNextEntry(entry);
 
-            byte[] buffer =  new byte[fileInputStream.available()];
-            fileInputStream.read(buffer);
-
-            zout.write(buffer);
+            zout.write(inputData);
             zout.closeEntry();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -47,7 +44,7 @@ public class ZipUtil {
 
     public static void main(String[] args) throws FileNotFoundException {
         String name = "README.md";
-        //zip(new FileInputStream(name), name);
+        zip("hello world".getBytes(), "new.txt", "out.zip");
         //unzip(new FileInputStream("output.zip"));
     }
 }
