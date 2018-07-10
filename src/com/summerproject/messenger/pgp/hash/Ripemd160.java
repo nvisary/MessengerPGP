@@ -1,6 +1,8 @@
 package com.summerproject.messenger.pgp.hash;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Ripemd160 {
 
@@ -173,7 +175,7 @@ public class Ripemd160 {
         return words;
     }
 
-    public static String hash(byte[] in) {
+    public static String hash(byte[] in) throws IOException {
         /*Шаг 1 - добавление недостающих битов */
 
         int countBytes = in.length;
@@ -258,8 +260,10 @@ public class Ripemd160 {
     }
 
 
+
+
     public static void main(String[] args) throws IOException {
-        System.out.println("Ripemd160(The quick brown fox jumps over the lazy cog) = " + hash("The quick brown fox jumps over the lazy cog".getBytes()));
+        System.out.println(hash("The quick brown fox jumps over the lazy cog".getBytes()));
 
 
         /*byte[] arr = getByteArray("new.bmp");

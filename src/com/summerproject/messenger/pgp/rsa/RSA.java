@@ -8,15 +8,6 @@ public class RSA {
     private PrivateKey privateKey;
     private PublicKey publicKey;
 
-    public void generateKeys(int bitCount) {
-        Random rnd = new Random();
-        int i1 = rnd.nextInt(100000) + 1;
-        byte[] password = new byte[i1];
-        rnd.nextBytes(password);
-
-        generateKeys(bitCount, new String(password));
-    }
-
     public void generateKeys(int bitCount, String password)  {
         BigInteger publicExponenta = new BigInteger(Integer.toString(65537));
         BigInteger n;
@@ -41,14 +32,14 @@ public class RSA {
         privateKey = new PrivateKey(privateExponenta, n);
     }
 
-    public byte[] mac(String message) throws NoSuchAlgorithmException {
-        byte[] messageHash = Util.hashSha256(message);
-        BigInteger messageHashInteger = new BigInteger(messageHash);
-        messageHashInteger = messageHashInteger.abs();
-        BigInteger sign = Util.modPow(messageHashInteger, privateKey.getD(), privateKey.getN());
+    public byte[] mac(byte[] dataHash) {
+        BigInteger dataHashInteger = new BigInteger(dataHash);
+        dataHashInteger = dataHashInteger.abs();
+        BigInteger sign = Util.modPow(dataHashInteger, privateKey.getD(), privateKey.getN());
         return sign.toByteArray();
     }
 
+    //NOT WORK!! CHANGE TO RIPEMD160
     public boolean checkMac(String message, byte[] sign) throws NoSuchAlgorithmException {
         BigInteger signInteger = new BigInteger(sign);
         BigInteger h = signInteger.modPow(publicKey.getE(), publicKey.getN());
