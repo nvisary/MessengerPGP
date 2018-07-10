@@ -1,8 +1,6 @@
-package com.summerproject.messenger.pgp.RSA;
+package com.summerproject.messenger.pgp.rsa;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PublicKey {
     private BigInteger e;

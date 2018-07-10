@@ -1,4 +1,4 @@
-package com.summerproject.messenger.pgp.RSA;
+package com.summerproject.messenger.pgp.rsa;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;

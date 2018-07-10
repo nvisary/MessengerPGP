@@ -1,4 +1,4 @@
-package com.summerproject.messenger.pgp;
+package com.summerproject.messenger.pgp.zip;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

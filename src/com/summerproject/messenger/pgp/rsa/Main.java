@@ -1,4 +1,4 @@
-package com.summerproject.messenger.pgp.RSA;
+package com.summerproject.messenger.pgp.rsa;
 import java.security.NoSuchAlgorithmException;
 
 public class Main {
@@ -21,13 +21,13 @@ public class Main {
         System.out.println("res:" + new String(res2));
 
 
-        //RSA rsa3 = new RSA();
+        //rsa rsa3 = new rsa();
         //rsa3.generateKeys(128);
 
         /*String message = "I am Alice";
 
-        RSA alice = new RSA();
-        RSA bob = new RSA();
+        rsa alice = new rsa();
+        rsa bob = new rsa();
 
         alice.generateKeys(1024);
         byte[] sign = alice.mac(message);

@@ -1,8 +1,6 @@
-package com.summerproject.messenger.pgp;
+package com.summerproject.messenger.pgp.hash;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
 public class Ripemd160 {
 
