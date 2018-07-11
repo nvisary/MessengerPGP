@@ -16,11 +16,12 @@ public class PGP {
     private PrivateKey privateRSAkey;
     private PublicKey publicRSAkey;
     private PublicKey publicReceiverKey;
-    private static int PGP_KEYS_BIT_COUNT = 2048;
+    private RSA curRSA;
+    private static int PGP_KEYS_BIT_COUNT = 1024;
     private String userSecretPassword = "qwerty";
     public PGPEncodedData encode(byte[] inputData) throws IOException {
         System.out.println("1 - zip input data");
-        byte[] zipInputData = ZipUtil.zip(inputData, "data.txt");
+       // byte[] zipInputData = ZipUtil.zip(inputData, "data.txt");
 
         System.out.println("2 - RSA generate keys");
         RSA rsa = new RSA();
@@ -29,38 +30,53 @@ public class PGP {
         publicRSAkey = rsa.getPublicKey();
 
         System.out.println("3 - create sessionKey");
-        BigInteger sessionKey = Util.generateBigPrime(1024, (int) System.currentTimeMillis());
+        BigInteger sessionKey = Util.generateBigPrime(PGP_KEYS_BIT_COUNT / 4, (int) System.currentTimeMillis());
 
         System.out.println("4 - encoding zip data with IDEA");
         IDEA idea = new IDEA();
-        byte[] encoded = idea.encode(zipInputData, sessionKey);
+        byte[] encoded = idea.encode(inputData, sessionKey); //zipInputData
 
         System.out.println("5 - sign encoded data");
         String dataHash = Ripemd160.hash(encoded);
         byte[] sign = rsa.mac(dataHash.getBytes());
 
         System.out.println("6 - encoding session key with RSA and receiver public key");
-        BigInteger encodedSessionKey = rsa.encode(sessionKey);
+        RSA newRsa = new RSA();
+        newRsa.setPublicKey(publicReceiverKey);
+        BigInteger encodedSessionKey = newRsa.encode(sessionKey);
 
         PGPEncodedData pgpEncodedData = new PGPEncodedData(encoded, sign, encodedSessionKey, publicRSAkey);
         return pgpEncodedData;
     }
 
     public byte[] decode(PGPEncodedData pgpEncodedData) throws IOException {
+        byte[] result = new byte[0];
+
         System.out.println("1 - check sign");
         RSA rsa = new RSA();
         rsa.setPublicKey(pgpEncodedData.getSenderPublicKey());
         String dataHash = Ripemd160.hash(pgpEncodedData.getEncodedData());
-        boolean yes = rsa.checkMac(dataHash.getBytes(), pgpEncodedData.getSign());
-        System.out.println(yes);
-        return new byte[0];
+        if (rsa.checkMac(dataHash.getBytes(), pgpEncodedData.getSign())) {
+            System.out.println("sign is true");
+            System.out.println("2 - decoding session key");
+            BigInteger encodedSessionKey = pgpEncodedData.getEncodedSessionKey();
+
+
+            BigInteger decodedSessionKey = curRSA.decode(encodedSessionKey);
+            IDEA idea = new IDEA();
+            System.out.println("3 - decoding zip data");
+            result = idea.decode(pgpEncodedData.getEncodedData(), decodedSessionKey);
+            System.out.println("4 - unzip data");
+            //result = ZipUtil.unzip(decodedZipData);
+        }
+        return result;
     }
 
     public void generatePGPKeys() {
-        RSA rsa = new RSA();
-        rsa.generateKeys(PGP_KEYS_BIT_COUNT, userSecretPassword);
-        publicRSAkey = rsa.getPublicKey();
-        privateRSAkey = rsa.getPrivateKey();
+        curRSA = new RSA();
+        curRSA.generateKeys(PGP_KEYS_BIT_COUNT, userSecretPassword);
+        publicRSAkey = curRSA.getPublicKey();
+        privateRSAkey = curRSA.getPrivateKey();
     }
 
     public void setUserPassword(String userPassword) {
@@ -89,6 +105,15 @@ public class PGP {
         PGPEncodedData pgpEncodedData = pgp.encode("hello world!".getBytes());
 
         byte[] decodedData = pgp2.decode(pgpEncodedData);
+        System.out.println(new String(decodedData));
 
+        /*RSA first = new RSA();
+        RSA sec = new RSA();
+
+        sec.generateKeys(512, "hello");
+        first.setPublicKey(sec.getPublicKey());
+        byte[] encoded = first.encode("secret".getBytes());
+
+        System.out.println(new String(sec.decode(encoded)));*/
     }
 }

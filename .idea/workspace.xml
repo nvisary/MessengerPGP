@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="545d3084-a4b8-4700-8a9d-63b4c482029e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGPEncodedData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/pgp/PGP.class" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/pgp/PGP.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/pgp/zip/ZipUtil.class" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/pgp/zip/ZipUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGP.java" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/rsa/RSA.java" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/rsa/RSA.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/zip/ZipUtil.java" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/zip/ZipUtil.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,8 +18,8 @@
       <file leaf-file-name="ZipUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/zip/ZipUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1128">
-              <caret line="47" column="10" lean-forward="false" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
+            <state relative-caret-position="193">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,18 +30,18 @@
       <file leaf-file-name="PGP.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="90" column="57" lean-forward="true" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="57" />
+            <state relative-caret-position="312">
+              <caret line="32" column="57" lean-forward="false" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2657#2658#0" expanded="true" />
-                <element signature="e#2711#2712#0" expanded="true" />
-                <element signature="e#2750#2751#0" expanded="true" />
-                <element signature="e#2796#2797#0" expanded="true" />
-                <element signature="e#2865#2866#0" expanded="true" />
-                <element signature="e#2923#2924#0" expanded="true" />
-                <element signature="e#2968#2969#0" expanded="true" />
-                <element signature="e#3003#3004#0" expanded="true" />
+                <element signature="e#3337#3338#0" expanded="true" />
+                <element signature="e#3391#3392#0" expanded="true" />
+                <element signature="e#3430#3431#0" expanded="true" />
+                <element signature="e#3476#3477#0" expanded="true" />
+                <element signature="e#3545#3546#0" expanded="true" />
+                <element signature="e#3603#3604#0" expanded="true" />
+                <element signature="e#3648#3649#0" expanded="true" />
+                <element signature="e#3683#3684#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,24 +50,23 @@
       <file leaf-file-name="PGPEncodedData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGPEncodedData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="16" column="49" lean-forward="false" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+            <state relative-caret-position="156">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#658#659#0" expanded="true" />
-                <element signature="e#712#713#0" expanded="true" />
-                <element signature="e#758#759#0" expanded="true" />
-                <element signature="e#789#790#0" expanded="true" />
-                <element signature="e#816#817#0" expanded="true" />
-                <element signature="e#856#857#0" expanded="true" />
-                <element signature="e#888#889#0" expanded="true" />
-                <element signature="e#936#937#0" expanded="true" />
-                <element signature="e#976#977#0" expanded="true" />
-                <element signature="e#1046#1047#0" expanded="true" />
-                <element signature="e#1104#1105#0" expanded="true" />
-                <element signature="e#1149#1150#0" expanded="true" />
-                <element signature="e#1187#1188#0" expanded="true" />
+                <element signature="e#622#623#0" expanded="true" />
+                <element signature="e#656#657#0" expanded="true" />
+                <element signature="e#710#711#0" expanded="true" />
+                <element signature="e#756#757#0" expanded="true" />
+                <element signature="e#814#815#0" expanded="true" />
+                <element signature="e#854#855#0" expanded="true" />
+                <element signature="e#886#887#0" expanded="true" />
+                <element signature="e#934#935#0" expanded="true" />
+                <element signature="e#974#975#0" expanded="true" />
+                <element signature="e#1044#1045#0" expanded="true" />
+                <element signature="e#1102#1103#0" expanded="true" />
+                <element signature="e#1147#1148#0" expanded="true" />
+                <element signature="e#1185#1186#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +75,8 @@
       <file leaf-file-name="IDEA.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/idea/IDEA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="112" column="31" lean-forward="false" selection-start-line="112" selection-start-column="31" selection-end-line="112" selection-end-column="31" />
+            <state relative-caret-position="414">
+              <caret line="111" column="35" lean-forward="false" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -111,9 +105,13 @@
       <file leaf-file-name="RSA.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/rsa/RSA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-              <folding />
+            <state relative-caret-position="228">
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding>
+                <element signature="e#2668#2669#0" expanded="true" />
+                <element signature="e#2742#2743#0" expanded="true" />
+                <element signature="e#2864#2865#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,7 +119,7 @@
       <file leaf-file-name="Ripemd160.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/hash/Ripemd160.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6216">
+            <state relative-caret-position="0">
               <caret line="261" column="0" lean-forward="false" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -160,9 +158,9 @@
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/hash/Ripemd160.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/idea/Main.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/idea/IDEA.java" />
-        <option value="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/zip/ZipUtil.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGPEncodedData.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/rsa/RSA.java" />
+        <option value="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/zip/ZipUtil.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGP.java" />
       </list>
     </option>
@@ -421,12 +419,12 @@
       <updated>1530910572931</updated>
       <workItem from="1530910582228" duration="8548000" />
       <workItem from="1531241046609" duration="9298000" />
-      <workItem from="1531332624064" duration="3620000" />
+      <workItem from="1531332624064" duration="6663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21466000" />
+    <option name="totallyTimeSpent" value="24509000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -449,12 +447,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2784091" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2784091" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25725028" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06552094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -477,7 +475,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGP.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -519,7 +527,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2668#2669#0" expanded="true" />
+            <element signature="e#2742#2743#0" expanded="true" />
+            <element signature="e#2864#2865#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -539,14 +551,14 @@
           <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2657#2658#0" expanded="true" />
-            <element signature="e#2711#2712#0" expanded="true" />
-            <element signature="e#2750#2751#0" expanded="true" />
-            <element signature="e#2796#2797#0" expanded="true" />
-            <element signature="e#2865#2866#0" expanded="true" />
-            <element signature="e#2923#2924#0" expanded="true" />
-            <element signature="e#2968#2969#0" expanded="true" />
-            <element signature="e#3003#3004#0" expanded="true" />
+            <element signature="e#3337#3338#0" expanded="true" />
+            <element signature="e#3391#3392#0" expanded="true" />
+            <element signature="e#3430#3431#0" expanded="true" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3545#3546#0" expanded="true" />
+            <element signature="e#3603#3604#0" expanded="true" />
+            <element signature="e#3648#3649#0" expanded="true" />
+            <element signature="e#3683#3684#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -609,7 +621,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/hash/Ripemd160.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6216">
+        <state relative-caret-position="0">
           <caret line="261" column="0" lean-forward="false" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -634,48 +646,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/idea/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/idea/Test2.java" />
     <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/idea/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/zip/ZipUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1128">
-          <caret line="47" column="10" lean-forward="false" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGPEncodedData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="49" lean-forward="false" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#658#659#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#789#790#0" expanded="true" />
-            <element signature="e#816#817#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#936#937#0" expanded="true" />
-            <element signature="e#976#977#0" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1187#1188#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/idea/IDEA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="112" column="31" lean-forward="false" selection-start-line="112" selection-start-column="31" selection-end-line="112" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/rsa/PublicKey.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -692,28 +662,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/idea/IDEA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="111" column="35" lean-forward="false" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/zip/ZipUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGPEncodedData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#622#623#0" expanded="true" />
+            <element signature="e#656#657#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#814#815#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/rsa/RSA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="228">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="e#2668#2669#0" expanded="true" />
+            <element signature="e#2742#2743#0" expanded="true" />
+            <element signature="e#2864#2865#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="90" column="57" lean-forward="true" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="57" />
+        <state relative-caret-position="312">
+          <caret line="32" column="57" lean-forward="false" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2657#2658#0" expanded="true" />
-            <element signature="e#2711#2712#0" expanded="true" />
-            <element signature="e#2750#2751#0" expanded="true" />
-            <element signature="e#2796#2797#0" expanded="true" />
-            <element signature="e#2865#2866#0" expanded="true" />
-            <element signature="e#2923#2924#0" expanded="true" />
-            <element signature="e#2968#2969#0" expanded="true" />
-            <element signature="e#3003#3004#0" expanded="true" />
+            <element signature="e#3337#3338#0" expanded="true" />
+            <element signature="e#3391#3392#0" expanded="true" />
+            <element signature="e#3430#3431#0" expanded="true" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3545#3546#0" expanded="true" />
+            <element signature="e#3603#3604#0" expanded="true" />
+            <element signature="e#3648#3649#0" expanded="true" />
+            <element signature="e#3683#3684#0" expanded="true" />
           </folding>
         </state>
       </provider>
