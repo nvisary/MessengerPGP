@@ -2,9 +2,10 @@ package com.summerproject.messenger.pgp;
 
 import com.summerproject.messenger.pgp.rsa.PublicKey;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
-public class PGPEncodedData {
+public class PGPEncodedData implements Serializable{
     private byte[] encodedData;
     private byte[] sign;
     private BigInteger encodedSessionKey;

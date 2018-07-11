@@ -1,13 +1,13 @@
 package com.summerproject.messenger.pgp.rsa;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
-public class PublicKey {
-    private BigInteger e;
+public class PublicKey implements Serializable {
+    private BigInteger e = new BigInteger("65537");
     private BigInteger n;
 
-    public PublicKey(BigInteger e, BigInteger n) {
-        this.e = e;
+    public PublicKey(BigInteger n) {
         this.n = n;
     }
 

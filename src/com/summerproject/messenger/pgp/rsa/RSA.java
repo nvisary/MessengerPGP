@@ -30,7 +30,7 @@ public class RSA {
         BigInteger phiFunction = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
         BigInteger privateExponenta = Util.modInverse(publicExponenta, phiFunction);
 
-        publicKey = new PublicKey(publicExponenta, n);
+        publicKey = new PublicKey(n);
         privateKey = new PrivateKey(privateExponenta, n);
     }
 

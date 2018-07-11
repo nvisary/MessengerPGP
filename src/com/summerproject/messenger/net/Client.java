@@ -1,9 +1,14 @@
 package com.summerproject.messenger.net;
 
+import com.summerproject.messenger.pgp.PGP;
+import com.summerproject.messenger.pgp.PGPEncodedData;
+import com.summerproject.messenger.pgp.rsa.PublicKey;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
+import java.math.BigInteger;
 import java.net.Socket;
 
 public class Client {
@@ -11,7 +16,6 @@ public class Client {
     private int serverPort;
     private String serverIp;
     private ObjectOutputStream objectOutputStream;
-
     private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public Client(String serverIp, int serverPort) {
@@ -25,8 +29,19 @@ public class Client {
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 
 
+            System.out.println("Please, input your password for generate PGP keys...");
             StringBuilder sb = new StringBuilder(reader.readLine());
-            Data data = new Data(null, sb.toString());
+            String password = sb.toString();
+            System.out.println("Please, input public key...");
+            sb = new StringBuilder(reader.readLine());
+
+            PGP pgp = new PGP();
+            pgp.setPublicReceiverKey(new PublicKey(new BigInteger(sb.toString())));
+            pgp.setUserPassword(password);
+            System.out.println("Input your secret message...");
+            sb = new StringBuilder(reader.readLine());
+            PGPEncodedData pgpEncodedData = pgp.encode(sb.toString().getBytes());
+            Data data = new Data(pgpEncodedData, sb.toString());
             objectOutputStream.writeObject(data);
 
         } catch (IOException e) {
