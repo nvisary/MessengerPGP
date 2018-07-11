@@ -28,6 +28,7 @@ public class ZipUtil {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try (ZipInputStream zin = new ZipInputStream(byteArrayInputStream)) {
+            ZipEntry entry = zin.getNextEntry();
 
             for (int b = zin.read(); b != -1; b = zin.read()) {
                 byteArrayOutputStream.write(b);

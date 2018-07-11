@@ -10,7 +10,6 @@ import com.summerproject.messenger.pgp.zip.ZipUtil;
 
 import java.io.IOException;
 import java.math.BigInteger;
-import java.security.NoSuchAlgorithmException;
 
 public class PGP {
     private PrivateKey privateRSAkey;
@@ -21,7 +20,7 @@ public class PGP {
     private String userSecretPassword = "qwerty";
     public PGPEncodedData encode(byte[] inputData) throws IOException {
         System.out.println("1 - zip input data");
-       // byte[] zipInputData = ZipUtil.zip(inputData, "data.txt");
+        byte[] zipInputData = ZipUtil.zip(inputData, "data.txt");
 
         System.out.println("2 - RSA generate keys");
         RSA rsa = new RSA();
@@ -34,7 +33,7 @@ public class PGP {
 
         System.out.println("4 - encoding zip data with IDEA");
         IDEA idea = new IDEA();
-        byte[] encoded = idea.encode(inputData, sessionKey); //zipInputData
+        byte[] encoded = idea.encode(zipInputData, sessionKey); //inputData
 
         System.out.println("5 - sign encoded data");
         String dataHash = Ripemd160.hash(encoded);
@@ -65,9 +64,9 @@ public class PGP {
             BigInteger decodedSessionKey = curRSA.decode(encodedSessionKey);
             IDEA idea = new IDEA();
             System.out.println("3 - decoding zip data");
-            result = idea.decode(pgpEncodedData.getEncodedData(), decodedSessionKey);
+            byte[] decodedZipData = idea.decode(pgpEncodedData.getEncodedData(), decodedSessionKey);
             System.out.println("4 - unzip data");
-            //result = ZipUtil.unzip(decodedZipData);
+            result = ZipUtil.unzip(decodedZipData);
         }
         return result;
     }
