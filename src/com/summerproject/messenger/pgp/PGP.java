@@ -8,52 +8,87 @@ import com.summerproject.messenger.pgp.rsa.RSA;
 import com.summerproject.messenger.pgp.rsa.Util;
 import com.summerproject.messenger.pgp.zip.ZipUtil;
 
-import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.nio.channels.SeekableByteChannel;
-import java.nio.file.Files;
-import java.util.Arrays;
+import java.security.NoSuchAlgorithmException;
 
 public class PGP {
     private PrivateKey privateRSAkey;
     private PublicKey publicRSAkey;
+    private PublicKey publicReceiverKey;
     private static int PGP_KEYS_BIT_COUNT = 2048;
-    private static String zipFileName = "tmp.zip";
     private String userSecretPassword = "qwerty";
-    public void encode(byte[] inputData) throws IOException {
-        //System.out.println("1 - zip");
-
-        //ZipUtil.zip(inputData, "data.txt", zipFileName);
+    public PGPEncodedData encode(byte[] inputData) throws IOException {
+        System.out.println("1 - zip input data");
+        byte[] zipInputData = ZipUtil.zip(inputData, "data.txt");
 
         System.out.println("2 - RSA generate keys");
         RSA rsa = new RSA();
         rsa.generateKeys(PGP_KEYS_BIT_COUNT, userSecretPassword);
-
-        System.out.println("3 - getting sign");
-
-        IDEA idea = new IDEA();
-        BigInteger SessionKey = Util.generateBigPrime(128, (int) System.currentTimeMillis());
-        byte[] encoded = idea.encode(inputData, SessionKey);
-        byte[] decoded = idea.decode(encoded, SessionKey);
-
-
-        String dataHash = Ripemd160.hash(inputData); //change to loadFile(zipFileName)
-        byte[] sign = rsa.mac(dataHash.getBytes());
-
-
         privateRSAkey = rsa.getPrivateKey();
         publicRSAkey = rsa.getPublicKey();
+
+        System.out.println("3 - create sessionKey");
+        BigInteger sessionKey = Util.generateBigPrime(1024, (int) System.currentTimeMillis());
+
+        System.out.println("4 - encoding zip data with IDEA");
+        IDEA idea = new IDEA();
+        byte[] encoded = idea.encode(zipInputData, sessionKey);
+
+        System.out.println("5 - sign encoded data");
+        String dataHash = Ripemd160.hash(encoded);
+        byte[] sign = rsa.mac(dataHash.getBytes());
+
+        System.out.println("6 - encoding session key with RSA and receiver public key");
+        BigInteger encodedSessionKey = rsa.encode(sessionKey);
+
+        PGPEncodedData pgpEncodedData = new PGPEncodedData(encoded, sign, encodedSessionKey, publicRSAkey);
+        return pgpEncodedData;
     }
 
-    private byte[] loadFile(String fileName) throws IOException {
-        File file = new File(fileName);
-        byte[] result = Files.readAllBytes(file.toPath());
-        return result;
+    public byte[] decode(PGPEncodedData pgpEncodedData) throws IOException {
+        System.out.println("1 - check sign");
+        RSA rsa = new RSA();
+        rsa.setPublicKey(pgpEncodedData.getSenderPublicKey());
+        String dataHash = Ripemd160.hash(pgpEncodedData.getEncodedData());
+        boolean yes = rsa.checkMac(dataHash.getBytes(), pgpEncodedData.getSign());
+        System.out.println(yes);
+        return new byte[0];
+    }
+
+    public void generatePGPKeys() {
+        RSA rsa = new RSA();
+        rsa.generateKeys(PGP_KEYS_BIT_COUNT, userSecretPassword);
+        publicRSAkey = rsa.getPublicKey();
+        privateRSAkey = rsa.getPrivateKey();
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userSecretPassword = userPassword;
+    }
+
+    public String getUserPassword() {
+        return this.userSecretPassword;
+    }
+
+    public void setPublicReceiverKey(PublicKey publicReceiverKey) {
+        this.publicReceiverKey = publicReceiverKey;
+    }
+
+    public PublicKey getPublicSenderKey() {
+        return publicRSAkey;
     }
 
     public static void main(String[] args) throws IOException {
+        PGP pgp2 = new PGP();
+        pgp2.setUserPassword("how are you");
+        pgp2.generatePGPKeys();
+
         PGP pgp = new PGP();
-        pgp.encode("hello world!".getBytes());
+        pgp.setPublicReceiverKey(pgp2.getPublicSenderKey());
+        PGPEncodedData pgpEncodedData = pgp.encode("hello world!".getBytes());
+
+        byte[] decodedData = pgp2.decode(pgpEncodedData);
+
     }
 }

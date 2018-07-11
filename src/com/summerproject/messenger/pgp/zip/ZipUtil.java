@@ -1,50 +1,51 @@
 package com.summerproject.messenger.pgp.zip;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 public class ZipUtil {
-    public static void zip(byte[] inputData, String name, String outputName) {
-        try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(outputName))) {
+    public static byte[] zip(byte[] inputData, String name) {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        try (ZipOutputStream zout = new ZipOutputStream(bos)) {
             ZipEntry entry = new ZipEntry(name);
             zout.putNextEntry(entry);
 
             zout.write(inputData);
             zout.closeEntry();
+            zout.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return bos.toByteArray();
     }
 
-    public static void unzip(FileInputStream fileInputStream) {
-        try (ZipInputStream zin = new ZipInputStream(fileInputStream)) {
+    public static byte[] unzip(byte[] data) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try (ZipInputStream zin = new ZipInputStream(byteArrayInputStream)) {
             ZipEntry entry = zin.getNextEntry();
             String name = entry.getName();
-            FileOutputStream fout = new FileOutputStream(name);
-            for (int b = zin.read(); b != -1; b = zin.read()) {
-                fout.write(b);
-            }
-            fout.flush();
-            zin.closeEntry();
-            fout.close();
 
+            for (int b = zin.read(); b != -1; b = zin.read()) {
+                byteArrayOutputStream.write(b);
+            }
+            byteArrayOutputStream.flush();
+            zin.closeEntry();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return byteArrayOutputStream.toByteArray();
     }
 
     public static void main(String[] args) throws FileNotFoundException {
         String name = "README.md";
-        zip("hello world".getBytes(), "new.txt", "out.zip");
+        //zip("hello world".getBytes(), "new.txt", "out.zip");
         //unzip(new FileInputStream("output.zip"));
     }
 }

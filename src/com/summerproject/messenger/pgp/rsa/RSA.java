@@ -1,5 +1,7 @@
 package com.summerproject.messenger.pgp.rsa;
 
+import com.summerproject.messenger.pgp.hash.Ripemd160;
+
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
@@ -40,10 +42,9 @@ public class RSA {
     }
 
     //NOT WORK!! CHANGE TO RIPEMD160
-    public boolean checkMac(String message, byte[] sign) throws NoSuchAlgorithmException {
+    public boolean checkMac(byte[] messageHash, byte[] sign) {
         BigInteger signInteger = new BigInteger(sign);
         BigInteger h = signInteger.modPow(publicKey.getE(), publicKey.getN());
-        byte[] messageHash = Util.hashSha256(message);
         BigInteger messageHashInteger = new BigInteger(messageHash);
         messageHashInteger = messageHashInteger.abs();
         if (messageHashInteger.compareTo(h) == 0)
