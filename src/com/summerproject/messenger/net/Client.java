@@ -26,6 +26,7 @@ public class Client {
     public void start() {
         try {
             socket = new Socket(serverIp, serverPort);
+            socket.setSoTimeout(100000);
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 
 
@@ -50,7 +51,7 @@ public class Client {
     }
 
     public static void main(String[] args) {
-        Client client = new Client("localhost", 7777);
+        Client client = new Client("192.168.100.9", 7777);
         client.start();
     }
 }

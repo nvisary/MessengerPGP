@@ -21,6 +21,7 @@ public class Server implements Runnable {
         this.serverPort = serverPort;
         try {
             serverSocket = new ServerSocket(serverPort);
+            serverSocket.setSoTimeout(100000);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -34,6 +35,7 @@ public class Server implements Runnable {
         while (true) {
             try {
                 socket = serverSocket.accept();
+                socket.setSoTimeout(100000);
                 Connection connection = new Connection(socket, pgp);
                 connection.start();
             } catch (IOException e) {
