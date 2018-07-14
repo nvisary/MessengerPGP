@@ -90,9 +90,15 @@ public class PGP {
         this.publicReceiverKey = publicReceiverKey;
     }
 
-    public PublicKey getPublicSenderKey() {
+    public PublicKey getPublicPGPKey() {
         return publicRSAkey;
     }
+
+    public PrivateKey getPrivatePGPKey() {
+        return privateRSAkey;
+    }
+
+
 
     public static void main(String[] args) throws IOException {
         PGP pgp2 = new PGP();
@@ -100,7 +106,7 @@ public class PGP {
         pgp2.generatePGPKeys();
 
         PGP pgp = new PGP();
-        pgp.setPublicReceiverKey(pgp2.getPublicSenderKey());
+        pgp.setPublicReceiverKey(pgp2.getPublicPGPKey());
         PGPEncodedData pgpEncodedData = pgp.encode("hello world!".getBytes());
 
         byte[] decodedData = pgp2.decode(pgpEncodedData);

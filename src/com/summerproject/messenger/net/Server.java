@@ -1,14 +1,9 @@
 package com.summerproject.messenger.net;
 
 import com.summerproject.messenger.pgp.PGP;
-import com.sun.xml.internal.bind.v2.model.runtime.RuntimeBuiltinLeafInfo;
 
 import java.io.*;
 import java.net.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.Collections;
-import javax.swing.*;
 
 public class Server implements Runnable {
     private ObjectInputStream inputStream;
@@ -31,7 +26,7 @@ public class Server implements Runnable {
     @Override
     public void run() {
         pgp.generatePGPKeys();
-        System.out.println(pgp.getPublicSenderKey());
+        System.out.println(pgp.getPublicPGPKey());
         while (true) {
             try {
                 socket = serverSocket.accept();
