@@ -73,6 +73,7 @@ public class PGP {
 
     public void generatePGPKeys() {
         curRSA = new RSA();
+        System.out.println("generate... use password: " + userSecretPassword);
         curRSA.generateKeys(PGP_KEYS_BIT_COUNT, userSecretPassword);
         publicRSAkey = curRSA.getPublicKey();
         privateRSAkey = curRSA.getPrivateKey();
@@ -98,7 +99,13 @@ public class PGP {
         return privateRSAkey;
     }
 
+    public void setPrivatePGPkey(PrivateKey privateRSAkey) {
+        this.privateRSAkey = privateRSAkey;
+    }
 
+    public void setPublicPGPkey(PublicKey publicRSAkey) {
+        this.publicRSAkey = publicRSAkey;
+    }
 
     public static void main(String[] args) throws IOException {
         PGP pgp2 = new PGP();

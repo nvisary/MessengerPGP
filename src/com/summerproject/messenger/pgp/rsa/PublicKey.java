@@ -11,6 +11,10 @@ public class PublicKey implements Serializable {
         this.n = n;
     }
 
+    public PublicKey(String publicKeyString) {
+        n = new BigInteger(publicKeyString);
+    }
+
     public BigInteger getE() {
         return e;
     }

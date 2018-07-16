@@ -75,6 +75,9 @@ public class IDEA {
         subKeys = invertSubKeys;
 
     }
+    public byte[] encode(byte[] in, String userKey) {
+        return encode(in, new BigInteger(userKey.getBytes()));
+    }
 
     public byte[] encode(byte[] in, BigInteger key) {
         byte[] key16 = create16ByteKey(key.toString());
@@ -106,6 +109,10 @@ public class IDEA {
         } else {
             return data[index];
         }
+    }
+
+    public byte[] decode(byte[] in, String userKey) {
+        return decode(in, new BigInteger(userKey.getBytes()));
     }
 
     public byte[] decode(byte[] in, BigInteger key) {
