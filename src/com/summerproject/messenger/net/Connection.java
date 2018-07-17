@@ -23,9 +23,8 @@ public class Connection extends Thread {
     public void run() {
         try {
             //Data data = (Data) inputStream.readObject();
-            String str = (String) inputStream.readObject();
-            System.out.println("READ " + str);
-            model.addMessage(str);
+            Data data = (Data) inputStream.readObject();
+            model.addMessage(data.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

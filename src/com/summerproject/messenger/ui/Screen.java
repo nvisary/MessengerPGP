@@ -17,5 +17,4 @@ public abstract class Screen extends JFrame {
         setVisible(true);
     }
 
-
 }

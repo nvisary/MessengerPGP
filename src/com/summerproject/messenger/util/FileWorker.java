@@ -11,7 +11,8 @@ import java.util.Properties;
 public class FileWorker {
     public static String publicKey;
     public static String privateKey;
-    public static void writeProperties(String fileName, PublicKey publicKey, PrivateKey privateKey) {
+    public static String username;
+    public static void writeProperties(String fileName, PublicKey publicKey, PrivateKey privateKey, String username) {
         Properties properties = new Properties();
         OutputStream output = null;
 
@@ -20,6 +21,7 @@ public class FileWorker {
 
             properties.setProperty("publicKey", publicKey.toString());
             properties.setProperty("privateKey", privateKey.toString());
+            properties.setProperty("username", username);
 
             properties.store(output, null);
 
@@ -47,6 +49,7 @@ public class FileWorker {
 
             publicKey = properties.getProperty("publicKey");
             privateKey = properties.getProperty("privateKey");
+            username = properties.getProperty("username");
         } catch (IOException e) {
             e.printStackTrace();
         }

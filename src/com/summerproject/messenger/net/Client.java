@@ -50,7 +50,7 @@ public class Client {
         }
     }
 
-    public void send(String message) {
+    public void send(Data message) {
         try {
             socket = new Socket(serverIp, serverPort);
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());

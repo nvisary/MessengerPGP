@@ -6,11 +6,11 @@ import com.summerproject.messenger.pgp.rsa.PrivateKey;
 import com.summerproject.messenger.pgp.rsa.PublicKey;
 import com.summerproject.messenger.ui.MainScreen;
 import com.summerproject.messenger.ui.PasswordScreen;
+import com.summerproject.messenger.ui.UsernameScreen;
 import com.summerproject.messenger.util.FileWorker;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.UnknownHostException;
 
 public class Application {
     private Model model;
@@ -18,18 +18,18 @@ public class Application {
     private MainScreen mainScreen;
     private PasswordScreen passwordScreen;
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) {
         Application app = new Application();
         app.run();
     }
 
     public void run() {
         model = new Model();
-        model.startServer(7777);
         mainScreen = new MainScreen("PGP messenger", model);
         mainScreen.display();
         model.setMainScreen(mainScreen);
         checkProperties();
+        model.startServer();
 
         mainScreen.setTextToJTFPublicKey(model.getPgp().getPublicPGPKey().toString());
         encodeFile(propertiesFileName, model.getUserPassword());
@@ -40,7 +40,6 @@ public class Application {
         passwordScreen = new PasswordScreen(mainScreen, "Input password", model);
         passwordScreen.setVisible(true);
         if (file.exists()) {
-
             decodeFile(propertiesFileName, model.getUserPassword());
             FileWorker.readProperties(propertiesFileName);
             try {
@@ -48,6 +47,7 @@ public class Application {
                 PublicKey publicKey = new PublicKey(FileWorker.publicKey);
                 model.getPgp().setPrivatePGPkey(privateKey);
                 model.getPgp().setPublicPGPkey(publicKey);
+                model.setUsername(FileWorker.username);
 
             } catch (NullPointerException ex) {
                 System.exit(-1);
@@ -59,9 +59,11 @@ public class Application {
         } else {
             if (model.getUserPassword() != null) {
                 model.generatePgpKeys();
+                UsernameScreen usernameScreen = new UsernameScreen(mainScreen, "Input username", model);
+                usernameScreen.setVisible(true);
                 PublicKey publicKey = model.getPgp().getPublicPGPKey();
                 PrivateKey privateKey = model.getPgp().getPrivatePGPKey();
-                FileWorker.writeProperties(propertiesFileName, publicKey, privateKey);
+                FileWorker.writeProperties(propertiesFileName, publicKey, privateKey, model.getUsername());
             }
         }
     }

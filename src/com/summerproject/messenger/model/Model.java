@@ -18,15 +18,19 @@ public class Model {
     private String lastMessage;
     private Boolean isLastMessage = false;
     private MainScreen mainScreen;
+    private String username;
+
     public Model() {
         pgp = new PGP();
     }
 
-    public void startServer(int port) {
-        serverPort = port;
-        server = new Server(port, this);
+    public void startServer() {
+        server = new Server(serverPort, this);
         Thread serverThread = new Thread(server);
         serverThread.start();
+        if (mainScreen != null) {
+            mainScreen.setPort(serverPort);
+        }
     }
 
     public void setMainScreen(MainScreen mainScreen) {
@@ -71,5 +75,17 @@ public class Model {
 
     public int getServerPort() {
         return serverPort;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setServerPort(String port) {
+        serverPort = Integer.parseInt(port);
     }
 }

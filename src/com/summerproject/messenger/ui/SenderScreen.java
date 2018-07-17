@@ -1,6 +1,7 @@
 package com.summerproject.messenger.ui;
 
 import com.summerproject.messenger.net.Client;
+import com.summerproject.messenger.net.Data;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +25,7 @@ public class SenderScreen extends Screen {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                client.send(textField.getText());
+                client.send(new Data(null, textField.getText()));
                 textField.setText("");
             }
         });
