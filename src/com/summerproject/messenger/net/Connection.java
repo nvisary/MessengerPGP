@@ -1,5 +1,6 @@
 package com.summerproject.messenger.net;
 
+import com.summerproject.messenger.model.Model;
 import com.summerproject.messenger.pgp.PGP;
 import com.summerproject.messenger.pgp.PGPEncodedData;
 
@@ -10,20 +11,20 @@ import java.net.Socket;
 public class Connection extends Thread {
     private ObjectInputStream inputStream;
     private PGP pgp;
+    private Model model;
 
-
-    public Connection(Socket socket, PGP pgp) throws IOException {
+    public Connection(Socket socket, PGP pgp, Model model) throws IOException {
         inputStream = new ObjectInputStream(socket.getInputStream());
-        this.pgp = pgp;
+        this.model = model;
+        //this.pgp = pgp;
     }
 
     @Override
     public void run() {
         try {
-            Data data = (Data) inputStream.readObject();
-            PGPEncodedData pgpEncodedData = data.getPgpEncodedData();
-            byte[] arr = pgp.decode(pgpEncodedData);
-            System.out.println(new String(arr));
+            //Data data = (Data) inputStream.readObject();
+            String str = (String) inputStream.readObject();
+            model.addMessage(str);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

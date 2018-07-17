@@ -10,6 +10,7 @@ import com.summerproject.messenger.util.FileWorker;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 public class Application {
     private Model model;
@@ -24,9 +25,12 @@ public class Application {
 
     public void run() {
         model = new Model();
+        model.startServer(7777);
         mainScreen = new MainScreen("PGP messenger", model);
         mainScreen.display();
+        model.setMainScreen(mainScreen);
         checkProperties();
+        encodeFile(propertiesFileName, model.getUserPassword());
     }
 
     private void checkProperties() {
@@ -34,16 +38,8 @@ public class Application {
         passwordScreen = new PasswordScreen(mainScreen, "Input password", model);
         passwordScreen.setVisible(true);
         if (file.exists()) {
-            try {
-                byte[] encodedFile = FileWorker.loadFile(propertiesFileName);
-                IDEA idea = new IDEA();
-                byte[] decodedFile = idea.decode(encodedFile, model.getUserPassword());
-                FileWorker.saveFile(propertiesFileName, decodedFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-
+            decodeFile(propertiesFileName, model.getUserPassword());
             FileWorker.readProperties(propertiesFileName);
             try {
                 PrivateKey privateKey = new PrivateKey(FileWorker.privateKey);
@@ -64,18 +60,29 @@ public class Application {
                 PublicKey publicKey = model.getPgp().getPublicPGPKey();
                 PrivateKey privateKey = model.getPgp().getPrivatePGPKey();
                 FileWorker.writeProperties(propertiesFileName, publicKey, privateKey);
-                try {
-                    byte[] f = FileWorker.loadFile(propertiesFileName);
-                    IDEA idea = new IDEA();
-                    byte[] encoded = idea.encode(f, model.getUserPassword());
-                    FileWorker.saveFile(propertiesFileName, encoded);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
-
         }
     }
 
+    private void encodeFile(String fileName, String password) {
+        try {
+            byte[] f = FileWorker.loadFile(fileName);
+            IDEA idea = new IDEA();
+            byte[] encoded = idea.encode(f, password);
+            FileWorker.saveFile(fileName, encoded);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void decodeFile(String fileName, String password) {
+        try {
+            byte[] encodedFile = FileWorker.loadFile(propertiesFileName);
+            IDEA idea = new IDEA();
+            byte[] decodedFile = idea.decode(encodedFile, model.getUserPassword());
+            FileWorker.saveFile(propertiesFileName, decodedFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

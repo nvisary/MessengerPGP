@@ -50,6 +50,16 @@ public class Client {
         }
     }
 
+    public void send(String message) {
+        try {
+            socket = new Socket(serverIp, serverPort);
+            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectOutputStream.writeObject(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         Client client = new Client("192.168.100.9", 7777);
         client.start();
