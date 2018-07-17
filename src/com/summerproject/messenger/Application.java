@@ -25,7 +25,7 @@ public class Application {
 
     public void run() throws UnknownHostException {
         model = new Model();
-        model.startServer(7777);
+        model.startServer(7070);
         mainScreen = new MainScreen("PGP messenger", model);
         mainScreen.display();
         model.setMainScreen(mainScreen);

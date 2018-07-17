@@ -20,6 +20,7 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
 
     private JList<String> jlDialog;
     private JButton btnSend;
+    private JTextField jtfYourMessage;
 
     private DefaultListModel<String> listModel;
     private Model model;
@@ -63,13 +64,18 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
         jlDialog = new JList<>(listModel);
         jlDialog.setFont(font15);
         jlDialog.setBackground(Color.white);
-        jlDialog.setBounds(10, 110, 470, 400);
+        jlDialog.setBounds(10, 110, 470, 350);
+
+        jtfYourMessage = new JTextField();
+        jtfYourMessage.setBounds(10, 470, 470, 25);
+        jtfYourMessage.setFont(font15);
 
         btnSend = new JButton("Send");
         btnSend.setFont(font15);
-        btnSend.setBounds(10, 515, 100, 20);
+        btnSend.setBounds(10, 500, 100, 20);
         btnSend.addActionListener(this);
 
+        add(jtfYourMessage);
         add(btnSend);
         add(jlDialog);
         add(jtfReceiverPublicKey);
@@ -86,16 +92,27 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
     }
 
     public void addToList(String name, String message) {
-
+        String pattern1 = "[You] %s";
+        if (name.equals("You")) {
+            listModel.addElement(String.format(pattern1, message));
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         int port = Integer.parseInt(jtfReceiverPort.getText());
         String ip = jtfReceiverIp.getText();
-        PublicKey publicKey = new PublicKey(jtfReceiverPublicKey.getText());
-
+        String message = jtfYourMessage.getText();
         System.out.println(ip + ":" + port);
-        System.out.println(publicKey);
+        System.out.println(message);
+        if (!message.equals("")) {
+            addToList("You", message);
+        }
+
+        if (!jtfReceiverPublicKey.getText().equals("")) {
+            PublicKey publicKey = new PublicKey(jtfReceiverPublicKey.getText());
+            System.out.println(publicKey);
+
+        }
     }
 }
