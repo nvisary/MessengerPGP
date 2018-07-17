@@ -1,11 +1,14 @@
 package com.summerproject.messenger.ui;
 
 import com.summerproject.messenger.model.Model;
+import com.summerproject.messenger.pgp.rsa.PublicKey;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class DialogAndSendScreen extends Screen {
+public class DialogAndSendScreen extends Screen implements ActionListener {
 
     private JLabel lblReceiverIp;
     private JLabel lblReceiverPort;
@@ -28,6 +31,8 @@ public class DialogAndSendScreen extends Screen {
         setLayout(null);
         this.model = model;
 
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         lblReceiverIp = new JLabel("Receiver ip: ");
         lblReceiverIp.setBounds(10, 10, 100, 20);
         lblReceiverIp.setFont(font15);
@@ -42,7 +47,7 @@ public class DialogAndSendScreen extends Screen {
         lblReceiverPort.setFont(font15);
         lblReceiverPort.setBounds(250, 10, 100, 20);
 
-        jtfReceiverPort =  new JTextField("7777");
+        jtfReceiverPort = new JTextField("7777");
         jtfReceiverPort.setFont(font15);
         jtfReceiverPort.setBounds(350, 9, 100, 25);
 
@@ -63,6 +68,7 @@ public class DialogAndSendScreen extends Screen {
         btnSend = new JButton("Send");
         btnSend.setFont(font15);
         btnSend.setBounds(10, 515, 100, 20);
+        btnSend.addActionListener(this);
 
         add(btnSend);
         add(jlDialog);
@@ -72,15 +78,24 @@ public class DialogAndSendScreen extends Screen {
         add(lblReceiverPort);
         add(jtfReceiverIp);
         add(lblReceiverIp);
+    }
 
+    public static void main(String[] args) {
+        DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("TEST", null);
+        dialogAndSendScreen.display();
     }
 
     public void addToList(String name, String message) {
 
     }
 
-    public static void main(String[] args) {
-        DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("TEST",null);
-        dialogAndSendScreen.display();
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        int port = Integer.parseInt(jtfReceiverPort.getText());
+        String ip = jtfReceiverIp.getText();
+        PublicKey publicKey = new PublicKey(jtfReceiverPublicKey.getText());
+
+        System.out.println(ip + ":" + port);
+        System.out.println(publicKey);
     }
 }
