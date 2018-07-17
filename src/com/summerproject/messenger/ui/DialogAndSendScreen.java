@@ -1,6 +1,7 @@
 package com.summerproject.messenger.ui;
 
 import com.summerproject.messenger.model.Model;
+import com.summerproject.messenger.net.Client;
 import com.summerproject.messenger.pgp.rsa.PublicKey;
 
 import javax.swing.*;
@@ -107,12 +108,13 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
         System.out.println(message);
         if (!message.equals("")) {
             addToList("You", message);
+            Client client = new Client(ip, port);
+            client.send(message);
         }
 
         if (!jtfReceiverPublicKey.getText().equals("")) {
             PublicKey publicKey = new PublicKey(jtfReceiverPublicKey.getText());
             System.out.println(publicKey);
-
         }
     }
 }
