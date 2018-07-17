@@ -23,9 +23,9 @@ public class Application {
         app.run();
     }
 
-    public void run() throws UnknownHostException {
+    public void run() {
         model = new Model();
-        model.startServer(7070);
+        model.startServer(7777);
         mainScreen = new MainScreen("PGP messenger", model);
         mainScreen.display();
         model.setMainScreen(mainScreen);
@@ -79,10 +79,10 @@ public class Application {
 
     private void decodeFile(String fileName, String password) {
         try {
-            byte[] encodedFile = FileWorker.loadFile(propertiesFileName);
+            byte[] encodedFile = FileWorker.loadFile(fileName);
             IDEA idea = new IDEA();
-            byte[] decodedFile = idea.decode(encodedFile, model.getUserPassword());
-            FileWorker.saveFile(propertiesFileName, decodedFile);
+            byte[] decodedFile = idea.decode(encodedFile, password);
+            FileWorker.saveFile(fileName, decodedFile);
         } catch (IOException e) {
             e.printStackTrace();
         }

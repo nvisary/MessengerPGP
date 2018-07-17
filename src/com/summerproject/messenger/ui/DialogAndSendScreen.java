@@ -88,7 +88,7 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
     }
 
     public static void main(String[] args) {
-        DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("TEST", null);
+        DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("TEST",null);
         dialogAndSendScreen.display();
     }
 

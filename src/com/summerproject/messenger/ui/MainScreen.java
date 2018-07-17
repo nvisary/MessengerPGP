@@ -25,6 +25,7 @@ public class MainScreen extends Screen {
     private JTextField jtfYourServerIp;
     private JTextField jtfYourServerPort;
     private JButton btnOpenSendMessageScreen;
+    private JButton test;
 
     public MainScreen(String title, Model model){
         super(title);
@@ -95,11 +96,21 @@ public class MainScreen extends Screen {
         btnOpenSendMessageScreen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("Send to..", model);
+                DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("Send to..", null);
                 dialogAndSendScreen.display();
             }
         });
 
+        test = new JButton("123");
+        test.setBounds(getWidth() - 200, getHeight() - 50, 50, 20);
+        test.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listModel.addElement("Test");
+            }
+        });
+
+        add(test);
         add(btnOpenSendMessageScreen);
         add(jlYourMessages);
         add(lblYourMessages);
