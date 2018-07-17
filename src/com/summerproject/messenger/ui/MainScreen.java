@@ -95,7 +95,7 @@ public class MainScreen extends Screen {
         btnOpenSendMessageScreen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("Send to..", null);
+                DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("Send to..", model);
                 dialogAndSendScreen.display();
             }
         });

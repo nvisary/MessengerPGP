@@ -111,6 +111,7 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
             addToList("You", message);
             Client client = new Client(ip, port);
             Data data = new Data(null, message);
+            data.setUsername(model.getUsername());
             client.send(data);
         }
 

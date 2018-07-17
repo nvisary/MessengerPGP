@@ -7,10 +7,19 @@ import java.io.Serializable;
 public class Data implements Serializable {
     private PGPEncodedData pgpEncodedData;
     private String message;
+    private String username;
 
     public Data(PGPEncodedData pgpEncodedData, String message) {
         this.pgpEncodedData = pgpEncodedData;
         this.message = message;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public PGPEncodedData getPgpEncodedData() {

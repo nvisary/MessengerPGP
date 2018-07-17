@@ -30,7 +30,6 @@ public class Application {
         model.setMainScreen(mainScreen);
         checkProperties();
         model.startServer();
-
         mainScreen.setTextToJTFPublicKey(model.getPgp().getPublicPGPKey().toString());
         encodeFile(propertiesFileName, model.getUserPassword());
     }
@@ -39,6 +38,9 @@ public class Application {
         File file = new File(propertiesFileName);
         passwordScreen = new PasswordScreen(mainScreen, "Input password", model);
         passwordScreen.setVisible(true);
+        UsernameScreen usernameScreen = new UsernameScreen(mainScreen, "Input username", model);
+        usernameScreen.setVisible(true);
+
         if (file.exists()) {
             decodeFile(propertiesFileName, model.getUserPassword());
             FileWorker.readProperties(propertiesFileName);
@@ -52,15 +54,9 @@ public class Application {
             } catch (NullPointerException ex) {
                 System.exit(-1);
             }
-
-            System.out.println(model.getPgp().getPublicPGPKey());
-            System.out.println(model.getPgp().getPrivatePGPKey());
-
         } else {
             if (model.getUserPassword() != null) {
                 model.generatePgpKeys();
-                UsernameScreen usernameScreen = new UsernameScreen(mainScreen, "Input username", model);
-                usernameScreen.setVisible(true);
                 PublicKey publicKey = model.getPgp().getPublicPGPKey();
                 PrivateKey privateKey = model.getPgp().getPrivatePGPKey();
                 FileWorker.writeProperties(propertiesFileName, publicKey, privateKey, model.getUsername());
