@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="545d3084-a4b8-4700-8a9d-63b4c482029e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/ui/DialogAndSendScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/model/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/net/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/net/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/MainScreen$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/MainScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/MainScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/PasswordScreen$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/PasswordScreen$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/PasswordScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/PasswordScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/Screen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MessengerPGP/com/summerproject/messenger/ui/Screen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prop.settings" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/net/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/net/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/ui/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/ui/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/ui/PasswordScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/ui/PasswordScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/summerproject/messenger/ui/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/summerproject/messenger/ui/Screen.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,32 +39,10 @@
       <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+            <state>
+              <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/model/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#569#570#0" expanded="true" />
-                <element signature="e#600#601#0" expanded="true" />
-                <element signature="e#799#800#0" expanded="true" />
-                <element signature="e#843#844#0" expanded="true" />
-                <element signature="e#1055#1056#0" expanded="true" />
-                <element signature="e#1091#1092#0" expanded="true" />
-                <element signature="e#1344#1345#0" expanded="true" />
-                <element signature="e#1374#1375#0" expanded="true" />
-                <element signature="e#1720#1721#0" expanded="true" />
-                <element signature="e#1753#1754#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,70 +51,8 @@
       <file leaf-file-name="MainScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/ui/MainScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="96" column="72" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2674#2675#0" expanded="true" />
-                <element signature="e#2715#2716#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shortcuts.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/ui/shortcuts.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/net/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
-              <folding>
-                <element signature="e#1323#1324#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PGP.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/pgp/PGP.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Connection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/net/Connection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/net/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SenderScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/ui/SenderScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="516">
+              <caret line="95" column="39" selection-start-line="95" selection-start-column="39" selection-end-line="95" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Screen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/ui/Screen.java">
+      <file leaf-file-name="DialogAndSendScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/ui/DialogAndSendScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="61" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
+            <state relative-caret-position="116">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -225,8 +133,9 @@
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/ui/PasswordScreen.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/ui/Screen.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/net/Server.java" />
-        <option value="$PROJECT_DIR$/src/com/summerproject/messenger/Application.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/com/summerproject/messenger/Application.java" />
+        <option value="$PROJECT_DIR$/src/com/summerproject/messenger/ui/DialogAndSendScreen.java" />
         <option value="$PROJECT_DIR$/src/com/summerproject/messenger/ui/MainScreen.java" />
       </list>
     </option>
@@ -332,7 +241,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SenderScreen">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.summerproject.messenger.Application" />
       <module name="MessengerPGP" />
@@ -353,8 +262,8 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="MainScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.summerproject.messenger.ui.MainScreen" />
+    <configuration name="DialogAndSendScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.summerproject.messenger.ui.DialogAndSendScreen" />
       <module name="MessengerPGP" />
       <extension name="coverage">
         <pattern>
@@ -363,12 +272,12 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="MessengerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.summerproject.messenger.ui.test.MessengerApplication" />
+    <configuration name="MainScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.summerproject.messenger.ui.MainScreen" />
       <module name="MessengerPGP" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.summerproject.messenger.ui.test.*" />
+          <option name="PATTERN" value="com.summerproject.messenger.ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -394,19 +303,19 @@
       </extension>
     </configuration>
     <list>
-      <item itemvalue="Application.MessengerApplication" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Application" />
       <item itemvalue="Application.SenderScreen" />
       <item itemvalue="Application.MainScreen" />
+      <item itemvalue="Application.DialogAndSendScreen" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SenderScreen" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.DialogAndSendScreen" />
+        <item itemvalue="Application.SenderScreen" />
         <item itemvalue="Application.MainScreen" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.MessengerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -426,12 +335,12 @@
       <workItem from="1531481646807" duration="6437000" />
       <workItem from="1531588696849" duration="15702000" />
       <workItem from="1531746989516" duration="9833000" />
-      <workItem from="1531834549260" duration="6207000" />
+      <workItem from="1531834549260" duration="10744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72394000" />
+    <option name="totallyTimeSpent" value="76931000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -456,11 +365,11 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32954547" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2215909" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5355114" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.22585227" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27315435" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13624161" />
       <window_info anchor="right" id="Database" order="5" weight="0.32975295" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -501,20 +410,11 @@
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/summerproject/messenger/Application.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../other/kripto_lab1.4/src/Coder.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../other/lab8kate/src/Coder.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -790,16 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -820,14 +710,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/ui/MainScreen.java">
+    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/ui/DialogAndSendScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="96" column="72" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+        <state relative-caret-position="116">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2674#2675#0" expanded="true" />
-            <element signature="e#2715#2716#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/summerproject/messenger/ui/MainScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="95" column="39" selection-start-line="95" selection-start-column="39" selection-end-line="95" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

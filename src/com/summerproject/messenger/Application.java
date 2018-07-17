@@ -32,7 +32,6 @@ public class Application {
         checkProperties();
 
         mainScreen.setTextToJTFPublicKey(model.getPgp().getPublicPGPKey().toString());
-        mainScreen.repaint();
         encodeFile(propertiesFileName, model.getUserPassword());
     }
 

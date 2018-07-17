@@ -3,6 +3,10 @@ package com.summerproject.messenger.ui;
 import com.summerproject.messenger.model.Model;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.*;
@@ -20,8 +24,9 @@ public class MainScreen extends Screen {
     private JLabel lblYourServerPort;
     private JTextField jtfYourServerIp;
     private JTextField jtfYourServerPort;
+    private JButton btnOpenSendMessageScreen;
 
-    public MainScreen(String title, Model model) throws UnknownHostException {
+    public MainScreen(String title, Model model){
         super(title);
         this.model = model;
         setBounds(100, 100, 500, 600);
@@ -46,7 +51,12 @@ public class MainScreen extends Screen {
         lblYourServerPort.setBounds(170, 65, 100, 25);
         lblYourServerPort.setFont(font15);
 
-        String ip = InetAddress.getLocalHost().toString();
+        String ip = null;
+        try {
+            ip = InetAddress.getLocalHost().toString();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         ip = ip.substring(ip.indexOf("/") + 1, ip.length());
 
         jtfYourServerIp = new JTextField(ip);
@@ -60,7 +70,7 @@ public class MainScreen extends Screen {
         jtfYourServerPort.setBounds(240, 68, 45, 20);
         jtfYourServerPort.setText(String.valueOf(model.getServerPort()));
 
-        lblYourMessages = new JLabel("Your input messages: ");
+        lblYourMessages = new JLabel("Messages: ");
         lblYourMessages.setFont(font15);
         lblYourMessages.setBounds(10, 90, 160, 25);
 
@@ -69,7 +79,28 @@ public class MainScreen extends Screen {
         jlYourMessages.setBounds(10, 120, 470, 400);
         jlYourMessages.setBackground(Color.white);
         jlYourMessages.setFont(font15);
+        jlYourMessages.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    DialogAndSendScreen screen = new DialogAndSendScreen(e.getSource().toString(), model);
+                    screen.display();
+                }
+            }
+        });
 
+        btnOpenSendMessageScreen = new JButton("Send message...");
+        btnOpenSendMessageScreen.setFont(font15);
+        btnOpenSendMessageScreen.setBounds(getWidth() - 200, 530, 150, 20);
+        btnOpenSendMessageScreen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("Send to..", model);
+                dialogAndSendScreen.display();
+            }
+        });
+
+        add(btnOpenSendMessageScreen);
         add(jlYourMessages);
         add(lblYourMessages);
         add(jtfYourServerPort);
@@ -80,8 +111,8 @@ public class MainScreen extends Screen {
         add(lblPublicKey);
     }
 
-    private String pattern = "[%s]      |     %s";
     public void addToList(String name, String message) {
+        String pattern = "[%s] | %s";
         if (!map.containsKey(name)) {
             listModel.addElement(String.format(pattern, name, message));
             int id = listModel.indexOf(String.format(pattern, name, message));
@@ -96,10 +127,11 @@ public class MainScreen extends Screen {
         jtfPublicKey.setText(key);
     }
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args)  {
         MainScreen screen = new MainScreen("Test", null);
         screen.display();
 
     }
+
 
 }
