@@ -44,4 +44,8 @@ public class Server implements Runnable {
         }
 
     }
+
+    public int getServerPort() {
+        return serverPort;
+    }
 }

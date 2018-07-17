@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class Screen extends JFrame {
-    protected Font font13 = new Font("Roboto", Font.PLAIN, 13);
+    protected Font font15 = new Font("Roboto", Font.PLAIN, 15);
     protected Font font17 = new Font("Roboto", Font.PLAIN, 17);
     public Screen(String title) {
         super(title);

@@ -13,6 +13,7 @@ public class Model {
     private String userPassword;
     private PGP pgp;
     private Server server;
+    private int serverPort;
     private Client client;
     private String lastMessage;
     private Boolean isLastMessage = false;
@@ -22,7 +23,9 @@ public class Model {
     }
 
     public void startServer(int port) {
-        Thread serverThread = new Thread(new Server(port, this));
+        serverPort = port;
+        server = new Server(port, this);
+        Thread serverThread = new Thread(server);
         serverThread.start();
     }
 
@@ -50,6 +53,10 @@ public class Model {
         pgp.generatePGPKeys();
     }
 
+    public Server getServer() {
+        return server;
+    }
+
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
@@ -60,5 +67,9 @@ public class Model {
 
     public PGP getPgp() {
         return pgp;
+    }
+
+    public int getServerPort() {
+        return serverPort;
     }
 }

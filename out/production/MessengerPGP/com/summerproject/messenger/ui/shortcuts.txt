@@ -1,0 +1,5 @@
+JLabel = lblName
+JButton = btnName
+JTextField = tfName
+JList = jlName
+JPasswordField = lpfName

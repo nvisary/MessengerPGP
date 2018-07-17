@@ -10,7 +10,7 @@ import com.summerproject.messenger.util.FileWorker;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
+import java.net.UnknownHostException;
 
 public class Application {
     private Model model;
@@ -18,18 +18,21 @@ public class Application {
     private MainScreen mainScreen;
     private PasswordScreen passwordScreen;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnknownHostException {
         Application app = new Application();
         app.run();
     }
 
-    public void run() {
+    public void run() throws UnknownHostException {
         model = new Model();
         model.startServer(7777);
         mainScreen = new MainScreen("PGP messenger", model);
         mainScreen.display();
         model.setMainScreen(mainScreen);
         checkProperties();
+
+        mainScreen.setTextToJTFPublicKey(model.getPgp().getPublicPGPKey().toString());
+        mainScreen.repaint();
         encodeFile(propertiesFileName, model.getUserPassword());
     }
 

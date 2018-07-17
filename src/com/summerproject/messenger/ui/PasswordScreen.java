@@ -10,9 +10,9 @@ public class PasswordScreen extends JDialog {
     protected Font font13 = new Font("Roboto", Font.PLAIN, 15);
 
     private JButton btnAccept;
-    private JLabel label;
-    private JPasswordField passwordField;
-    private JLabel labelHelp;
+    private JLabel lblInputPassword;
+    private JPasswordField jpfPassword;
+    private JLabel lblHelp;
     private Model model;
 
 
@@ -40,41 +40,40 @@ public class PasswordScreen extends JDialog {
         btnAccept.setFont(font13);
         btnAccept.setBounds(105, 55, 90, 40);
 
-        label = new JLabel("Input password:");
-        label.setFont(font13);
-        label.setBounds(10, 15, 200, 50);
+        lblInputPassword = new JLabel("Input password:");
+        lblInputPassword.setFont(font13);
+        lblInputPassword.setBounds(10, 15, 200, 50);
 
-        passwordField = new JPasswordField();
-
-        passwordField.addActionListener(new ActionListener() {
+        jpfPassword = new JPasswordField();
+        jpfPassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveAndExit();
             }
         });
-        passwordField.setFont(font13);
-        passwordField.setBounds(122, 27, 200, 25);
+        jpfPassword.setFont(font13);
+        jpfPassword.setBounds(122, 27, 200, 25);
 
-        labelHelp = new JLabel("Please, input password...");
-        labelHelp.setFont(font13);
-        labelHelp.setForeground(Color.red);
-        labelHelp.setBounds(122, 10, 200, 15);
-        labelHelp.setVisible(false);
+        lblHelp = new JLabel("Please, input password...");
+        lblHelp.setFont(font13);
+        lblHelp.setForeground(Color.red);
+        lblHelp.setBounds(122, 10, 200, 15);
+        lblHelp.setVisible(false);
         setLayout(null);
 
-        add(label);
+        add(lblInputPassword);
         add(btnAccept);
-        add(passwordField);
-        add(labelHelp);
+        add(jpfPassword);
+        add(lblHelp);
     }
 
     private void saveAndExit() {
-        String password = String.valueOf(passwordField.getPassword());
+        String password = String.valueOf(jpfPassword.getPassword());
         if (!password.equals("")) {
             model.setUserPassword(password);
             dispose();
         } else {
-            labelHelp.setVisible(true);
+            lblHelp.setVisible(true);
         }
     }
 }
