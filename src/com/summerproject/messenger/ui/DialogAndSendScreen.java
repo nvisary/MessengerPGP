@@ -3,12 +3,14 @@ package com.summerproject.messenger.ui;
 import com.summerproject.messenger.model.Model;
 import com.summerproject.messenger.net.Client;
 import com.summerproject.messenger.net.Data;
+import com.summerproject.messenger.pgp.PGPEncodedData;
 import com.summerproject.messenger.pgp.rsa.PublicKey;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class DialogAndSendScreen extends Screen implements ActionListener {
 
@@ -27,12 +29,15 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
     private DefaultListModel<String> listModel;
     private Model model;
 
+    private String username;
 
-    public DialogAndSendScreen(String title, Model model) {
+
+    public DialogAndSendScreen(String title, Model model, String username) {
         super(title);
         setBounds(100, 100, 500, 600);
         setLayout(null);
         this.model = model;
+        this.username = username;
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
@@ -89,7 +94,7 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
     }
 
     public static void main(String[] args) {
-        DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("TEST",null);
+        DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("TEST",null, "you");
         dialogAndSendScreen.display();
     }
 
@@ -107,17 +112,22 @@ public class DialogAndSendScreen extends Screen implements ActionListener {
         String message = jtfYourMessage.getText();
         System.out.println(ip + ":" + port);
         System.out.println(message);
-        if (!message.equals("")) {
+        if (!message.equals("") && !jtfReceiverPublicKey.getText().equals("")) {
             addToList("You", message);
+            model.addMessage("You", username, message);
             Client client = new Client(ip, port);
-            Data data = new Data(null, message);
-            data.setUsername(model.getUsername());
-            client.send(data);
+            try {
+                PublicKey publicKey = new PublicKey(jtfReceiverPublicKey.getText());
+                model.getPgp().setPublicReceiverKey(publicKey);
+                PGPEncodedData pgpEncodedData = model.getPgp().encode(message.getBytes());
+                Data data = new Data(pgpEncodedData);
+                data.setUsername(model.getUsername());
+                System.out.println(data);
+                client.send(data);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
 
-        if (!jtfReceiverPublicKey.getText().equals("")) {
-            PublicKey publicKey = new PublicKey(jtfReceiverPublicKey.getText());
-            System.out.println(publicKey);
-        }
     }
 }

@@ -3,6 +3,8 @@ package com.summerproject.messenger.ui;
 import com.summerproject.messenger.model.Model;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -79,15 +81,31 @@ public class MainScreen extends Screen {
         jlYourMessages.setBounds(10, 120, 470, 400);
         jlYourMessages.setBackground(Color.white);
         jlYourMessages.setFont(font15);
-        jlYourMessages.addMouseListener(new MouseAdapter() {
+        jlYourMessages.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if ( !e.getValueIsAdjusting() && !jlYourMessages.isSelectionEmpty()) {
+                    String str = jlYourMessages.getSelectedValue();
+                    int id1 = str.indexOf("[");
+                    int id2 = str.indexOf("]");
+                    String username = str.substring(id1 + 1, id2 );
+                    DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("Send to " + username, model, username);
+                    dialogAndSendScreen.display();
+
+                }
+
+            }
+        });
+
+        /*jlYourMessages.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    DialogAndSendScreen screen = new DialogAndSendScreen(e.getSource().toString(), model);
+                    DialogAndSendScreen screen = new DialogAndSendScreen("Send to", model, "You");
                     screen.display();
                 }
             }
-        });
+        });*/
 
         btnOpenSendMessageScreen = new JButton("Send message...");
         btnOpenSendMessageScreen.setFont(font15);
@@ -95,7 +113,7 @@ public class MainScreen extends Screen {
         btnOpenSendMessageScreen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("Send to..", model);
+                DialogAndSendScreen dialogAndSendScreen = new DialogAndSendScreen("Send to...", model, "You");
                 dialogAndSendScreen.display();
             }
         });

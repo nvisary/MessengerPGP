@@ -59,8 +59,6 @@ public class PGP {
             System.out.println("sign is true");
             System.out.println("2 - decoding session key");
             BigInteger encodedSessionKey = pgpEncodedData.getEncodedSessionKey();
-
-
             BigInteger decodedSessionKey = curRSA.decode(encodedSessionKey);
             IDEA idea = new IDEA();
             System.out.println("3 - decoding zip data");

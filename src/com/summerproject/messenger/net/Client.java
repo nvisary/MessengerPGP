@@ -42,7 +42,7 @@ public class Client {
             System.out.println("Input your secret message...");
             sb = new StringBuilder(reader.readLine());
             PGPEncodedData pgpEncodedData = pgp.encode(sb.toString().getBytes());
-            Data data = new Data(pgpEncodedData, sb.toString());
+            Data data = new Data(pgpEncodedData);
             objectOutputStream.writeObject(data);
 
         } catch (IOException e) {

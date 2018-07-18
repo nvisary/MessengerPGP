@@ -5,8 +5,9 @@ import com.summerproject.messenger.net.Server;
 import com.summerproject.messenger.pgp.PGP;
 import com.summerproject.messenger.ui.MainScreen;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Model {
     private String userPassword;
@@ -15,8 +16,8 @@ public class Model {
     private int serverPort;
     private MainScreen mainScreen;
     private String username;
-    private Map<String, Data> messages = new HashMap<>();
-
+    //private HashMap<String, <ArrayList<Message>> dialogs = new HashMap;
+    private HashMap<String, ArrayList<Message>> dialogs = new HashMap<>();
 
     public Model() {
         pgp = new PGP();
@@ -36,9 +37,31 @@ public class Model {
     }
 
     public synchronized void addMessage(Data data) {
-        mainScreen.addToList(data.getUsername(), data.getMessage());
-        messages.put(data.getUsername(), data);
+        try {
+            byte[] message = pgp.decode(data.getPgpEncodedData());
+            System.out.println("Message: " + new String(message));
+            mainScreen.addToList(data.getUsername(), new String(message));
+            if (dialogs.containsKey(data.getUsername())) {
+                dialogs.get(data.getUsername()).add(new Message(data.getUsername(), new String(message)));
+            } else {
+                ArrayList<Message> tmp = new ArrayList<>();
+                tmp.add(new Message(data.getUsername(), new String(message)));
+                dialogs.put(data.getUsername(), tmp);
+            }
+            System.out.println(new String(message));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //mainScreen.addToList(data.getUsername(), data.getMessage());
+
     }
+
+    public synchronized void addMessage(String you, String username, String message) {
+        if (dialogs.containsKey(username) && you.equals("You")) {
+            dialogs.get(username).add(new Message("You", message));
+        }
+    }
+
 
     public void generatePgpKeys() {
         pgp.setUserPassword(userPassword);

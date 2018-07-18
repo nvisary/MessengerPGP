@@ -25,7 +25,7 @@ public class SenderScreen extends Screen {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                client.send(new Data(null, textField.getText()));
+                client.send(new Data(null));
                 textField.setText("");
             }
         });

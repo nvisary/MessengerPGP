@@ -9,7 +9,7 @@ public class Data implements Serializable {
     private String message;
     private String username;
 
-    public Data(PGPEncodedData pgpEncodedData, String message) {
+    public Data(PGPEncodedData pgpEncodedData) {
         this.pgpEncodedData = pgpEncodedData;
         this.message = message;
     }

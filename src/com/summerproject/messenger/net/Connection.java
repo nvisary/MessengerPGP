@@ -22,7 +22,6 @@ public class Connection extends Thread {
     @Override
     public void run() {
         try {
-            //Data data = (Data) inputStream.readObject();
             Data data = (Data) inputStream.readObject();
             model.addMessage(data);
         } catch (IOException e) {
